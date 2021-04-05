@@ -1,4 +1,4 @@
-# [Pursuit-Core-Web-React-Networking-Lab
+# Pursuit-Core-Web-React-Networking-Lab
 
 [![Pursuit Logo](https://avatars1.githubusercontent.com/u/5825944?s=200&v=4)](https://pursuit.org)
 
