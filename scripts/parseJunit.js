@@ -22,7 +22,7 @@ const failedSuites = [];
 const passed = (suite) => suite.succeeded === suite.tests;
 
 const parseAllFiles = async () => {
-  const glob = __dirname + "/../reports/junit/junit-*.xml";
+  const glob = __dirname + "/../reports/junit/junit*.xml";
   const fileNames = fg.sync(glob);
   numSuites = fileNames.length;
 
