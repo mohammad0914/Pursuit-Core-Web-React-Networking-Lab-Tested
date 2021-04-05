@@ -29,7 +29,6 @@ const parseAllFiles = async () => {
   for (const file of fileNames) {
     const report = await new Parser().parseXMLFile(file);
     const { testsuites } = report;
-    console.log{ testsuites }
 
     let testFilePassed = testsuites.every((ts) => passed(ts));
 
