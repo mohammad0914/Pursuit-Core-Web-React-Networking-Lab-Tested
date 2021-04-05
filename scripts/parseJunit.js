@@ -22,7 +22,7 @@ const failedSuites = [];
 const passed = (suite) => suite.succeeded === suite.tests;
 
 const parseAllFiles = async () => {
-  const glob = __dirname + "/../reports/junit/junit-*.xml";
+  const glob = __dirname + "/../reports/junit/junit*.xml";
   const fileNames = fg.sync(glob);
   numSuites = fileNames.length;
 
@@ -36,7 +36,7 @@ const parseAllFiles = async () => {
       passedSuites.push(testsuites[0].name);
     } else {
       let failed = testsuites.filter((ts) => !passed(ts));
-      failedSuites.push(failed[0].name);
+      failed.forEach((ts) => failedSuites.push(ts.name));
     }
   }
 

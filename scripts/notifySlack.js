@@ -8,9 +8,10 @@ const username =
 
 const prUrl = process.env["CIRCLE_PULL_REQUEST"];
 const circleJobUrl = process.env["CIRCLE_BUILD_URL"];
+const testType = process.env["CIRCLE_JOB"];
 
 const notifyPass = async (numSuites) => {
-  const msg = `🎉 ✅ Yay! *${username}* passed all ${numSuites} tests in ${repoName}!`;
+  const msg = `🎉 ✅ Yay! *${username}* passed all ${numSuites} ${testType} tests in ${repoName}!`;
   console.log(msg);
   await postToSlack(webhookUrl, msg);
 };
@@ -18,7 +19,7 @@ const notifyPass = async (numSuites) => {
 const notifyFail = async ({ numSuites, passedSuites, failedSuites }) => {
   const msg = `😿 🚫 *${username}* passed ${
     passedSuites.length
-  } / ${numSuites} tests for ${repoName}
+  } / ${numSuites} ${testType} tests for ${repoName}
 Failing tests:
 
 • ${failedSuites.join(" \n • ")}
