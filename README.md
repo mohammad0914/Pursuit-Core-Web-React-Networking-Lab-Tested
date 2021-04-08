@@ -21,13 +21,35 @@ The first screen is a menu to initiate the game. Either:
 
 - Someone else has created and shuffled a deck: in which case you input their Deck ID and click 'Draw'.
 - Not: in which case you click 'Generate Deck' to create a new one, and share it with your fellow players!
+- Also note that the Game screen (below) should _not_ appear yet.
 
 ![menuScreen](./assets/menuScreen.png)
 
 ### Game Screen
 
-After submitting this information, you should see two cards: this is your hand.
+After submitting this information, the menu screen disappears and you see the game screen.
+In this screen, you should see two cards: this is your hand.
+
+<details>
+  <summary>How do I get the two cards?</summary>
+
+- If your user chose `Generate Deck` in the menu, you can get a new deck AND draw two cards with a single API request. This is preferred because it is faster to make only one request.
+  - Use this API call: `https://deckofcardsapi.com/api/deck/new/draw?count=2`
+  - You will need to find the deck id in the response from the API.
+- If your user entered a deck id in the menu, then you can make a similar API request, but replace `new` with the user's deck id:
+  - `https://deckofcardsapi.com/api/deck/${deckId}/draw?count=2`
+- Either way, your Game screen will need to keep track of a deck id.
+</details>
+
 There should also be a button with the text `Hit Me!` that, when clicked, draws another card for you.
+
+<details>
+  <summary>How do I draw a card?</summary>
+  
+  - To draw a card, your component will need to know the deck id.
+  - You can make a similar call as before: ``https://deckofcardsapi.com/api/deck/${deckId}/draw?count=1`
+</details>
+
 Go around in a circle and play [blackjack](https://en.wikipedia.org/wiki/Blackjack) as normal: hit when you want to hit, stay if you want to stay, and try to best your opponents!
 
 ![gameScreen](./assets/gameScreen.png)
