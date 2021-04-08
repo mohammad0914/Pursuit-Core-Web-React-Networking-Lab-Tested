@@ -47,7 +47,7 @@ There should also be a button with the text `Hit Me!` that, when clicked, draws 
   <summary>How do I draw a card?</summary>
   
   - To draw a card, your component will need to know the deck id.
-  - You can make a similar call as before: ``https://deckofcardsapi.com/api/deck/${deckId}/draw?count=1`
+  - You can make a similar call as before: `https://deckofcardsapi.com/api/deck/${deckId}/draw?count=1`
 </details>
 
 Go around in a circle and play [blackjack](https://en.wikipedia.org/wiki/Blackjack) as normal: hit when you want to hit, stay if you want to stay, and try to best your opponents!
