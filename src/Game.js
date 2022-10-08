@@ -1,7 +1,19 @@
-import React from "react";
+class Game extends React.Component {
+    constructor() {
+        super()
+    }
 
-const Game = () => {
-  return null;
-};
+    render() {
+
+        const { images } = this.props
+        return (<>{
+
+            images.map(image => {
+                <img />
+            })
+
+        }</>)
+    }
+}
 
 export default Game;
